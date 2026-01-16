@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt install curl -y
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt install nodejs -y
+WORKDIR /opt/node-app
+COPY . /opt/node-app/
+ENV channel=kablosuzkedi
+#CMD ["node" , "/opt/node-app/index.js"];
+CMD ["/usr/bin/node", "index.js"]

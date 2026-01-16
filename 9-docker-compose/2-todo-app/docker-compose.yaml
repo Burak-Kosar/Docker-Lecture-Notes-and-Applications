@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  todo-app:
+    container_name: dc-todo-aoo
+    build: .
+    ports:
+        - 3000:3000
+  
+  mongo-db:
+    image: mongo:latest
+    ports:
+        - 27017:27017
+    volumes:
+        - todo-app-data:/data/db
+    
+volumes:
+  todo-app-data:
